@@ -1,25 +1,32 @@
+// Using the Link component from react-router-dom to 
+// replace all anchor <a href="url"> tags with <Link to="url">
+// so we can reload and render only the Navlink components
+import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <nav className="nav">
-      <a href="/" className="site-title">
+      <Link to="/" className="site-title">
         MyPage
-      </a>
+      </Link>
       <ul>
-        <Navlink href="/about">About</Navlink>
-        <Navlink href="/blog">Articles</Navlink>
-        <Navlink href="/downloads">Downloads</Navlink>
-        <Navlink href="/pricing">Pricing</Navlink>
+        <Navlink to="/about">About</Navlink>
+        <Navlink to="/blog">Articles</Navlink>
+        <Navlink to="/downloads">Downloads</Navlink>
+        <Navlink to="/pricing">Pricing</Navlink>
       </ul>
     </nav>
   );
 }
-
-function Navlink({ href, children, ...props }) {
+/* When modifying use <Link> instead of <a> make sure to use everywhere "to" instead of "href" */
+function Navlink({ to, children, ...props }) {
   const path = window.location.pathname;
-  // If the path is equal to href, set .active class to Navlink Comp
+
+  // If the path is equal to href(to), set .active class to Navlink component.
   return (
-    <li className={path === href ? "active" : ""}> 
-      <a href={href} {...props}>{children}</a>
+    <li className={path === to ? "active" : "" }>
+      <Link to={to } {...props }>
+        {children }
+      </Link>
     </li>
   );
 }
