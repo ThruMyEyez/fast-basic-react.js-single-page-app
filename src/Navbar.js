@@ -6,13 +6,13 @@ export default function Navbar() {
         <a href="/about">About</a>
       </li>
       <li>
-        <a href="/articles">Articles</a>
+        <a href="/blog">Articles</a>
       </li>
       <li>
         <a href="/downloads">Downloads</a>
       </li>
       <li>
-        <a href="/Pricing">Pricing</a>
+        <a href="/pricing">Pricing</a>
       </li>
     </ul>
   </nav>
