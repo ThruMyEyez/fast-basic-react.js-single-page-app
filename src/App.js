@@ -6,11 +6,11 @@ import About from "./pages/About.js";
 import Blog from "./pages/Blog.js";
 import Downloads from "./pages/Downloads.js";
 import Pricing from "./pages/Pricing.js";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-  //It is important to use a Capitalized letter for the Var.
-  let component;
 
+  /*let component;
   switch (window.location.pathname) {
     case "/":
       component = <Home />;
@@ -29,11 +29,20 @@ function App() {
       break;
     default:
       break;
-  }
-  return (
+  }*/
+  //This switch statement is  replaced with react-router code 
+  return ( // using Routes and Route,replacing { component }. 
     <>
       <Navbar />
-      <div className="container">{component}</div>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/downloads" element={<Downloads />} />
+          <Route path="/pricing" element={<Pricing />} />
+        </Routes>
+      </div>
     </>
   );
 }
